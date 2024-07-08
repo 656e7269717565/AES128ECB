@@ -6,7 +6,7 @@
 using std::cout;
 using std::cin;
 using std::array;
-using Byte=std::uint8_t;//name type is a bit long so I changed it, and yes, technically speaking uint8_t and byte are not the same in c++ but idc.
+using Byte=std::uint8_t;//name type is a bit long so I changed it, and yes, technically speaking uint8_t and byte are not the same in C++ but idc.
 using std::vector;
 
 const Byte sBox[256] = {
@@ -206,7 +206,7 @@ array<Byte,16> SubByte(array<Byte,16> Input){
     return result;
 }
 
-array<Byte,16> shiftrows(array<Byte,16> I){//changed Input for because the line is already long, having Input repeated wouldn't help xd
+array<Byte,16> shiftrows(array<Byte,16> I){//changed Input for "I" because the line is already long, having Input repeated wouldn't help xd
     array<Byte,16> Result = {I[0],I[5],I[10],I[15],I[4],I[9],I[14],I[3],I[8],I[13],I[2],I[7],I[12],I[1],I[6],I[11]};
     return Result;
 }
