@@ -422,7 +422,6 @@ vector<array<Byte,16>> string2blocks(string input){
     int size = input.length();
     int blocks = size/16;
     int remain = size%16;
-    int remainingpad = 16-remain;
     int i;
     int j;
     vector<array<Byte,16>> Blocks;
