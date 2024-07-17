@@ -433,6 +433,7 @@ vector<array<Byte,16>> string2blocks(string input){
         Blocks.push_back(temp);
 
     }
+    if(remain != 0){
     for(j=0;j<16;j++){
       if(j<remain){
         temp[j]=(Byte)input[i*16+j];
@@ -442,17 +443,26 @@ vector<array<Byte,16>> string2blocks(string input){
       }
         
     }
+    
     Blocks.push_back(temp);
+    }
     return Blocks;
 }
 
 int main() {
-  array<Byte, 16> key = {0x2b, 0x7e, 0x15, 0x16, 0x28, 0xae, 0xd2, 0xa6, 0xab, 0xf7, 0x15, 0x88, 0x09, 0xcf, 0x4f, 0x3c};//put key here
-  string st = "hello world!";//put input here
+  array<Byte, 16> key;//put key here
+  string st = "";//put input here
+  string Key= "";
+  cout<<"write message here: "<<std::endl;
+  getline(cin,st);
+  cout<<"write key here: "<<std::endl;
+  getline(cin,Key);
   vector<array<Byte,16>> BLCK = string2blocks(st);
+  vector<array<Byte,16>> KEY  = string2blocks(Key);
   vector<array<Byte,16>> EBLCK;//encrypted block
   vector<array<Byte,16>> DBLCK;//decrypted block
   array<Byte,16> temp;
+  key = KEY[0];//sets key to first block, ignoring the rest
   cout<<"--------------vvv--encrypted-vvv---------------\n";
   for(int block =0;block<BLCK.size();block++) {
     temp = BLCK[block];
